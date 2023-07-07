@@ -1,7 +1,7 @@
-package com.example.repoviewer.Service;
+package com.example.repoviewer.Services;
 
-import com.example.repoviewer.Model.Response.RepoResponse;
-import com.example.repoviewer.Repository.RepoRepository;
+import com.example.repoviewer.Models.Responses.RepoResponse;
+import com.example.repoviewer.Repositories.RepoRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.List;

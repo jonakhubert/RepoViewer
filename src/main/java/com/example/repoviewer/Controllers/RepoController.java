@@ -1,7 +1,7 @@
-package com.example.repoviewer.Controller;
+package com.example.repoviewer.Controllers;
 
-import com.example.repoviewer.Model.Response.RepoResponse;
-import com.example.repoviewer.Service.RepoService;
+import com.example.repoviewer.Models.Responses.RepoResponse;
+import com.example.repoviewer.Services.RepoService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
