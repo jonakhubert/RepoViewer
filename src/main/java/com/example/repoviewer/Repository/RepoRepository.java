@@ -3,10 +3,8 @@ package com.example.repoviewer.Repository;
 import com.example.repoviewer.Model.Repo;
 import com.example.repoviewer.Model.Response.RepoResponse;
 import org.springframework.core.ParameterizedTypeReference;
-import org.springframework.http.HttpMethod;
 import org.springframework.http.MediaType;
 import org.springframework.http.RequestEntity;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Repository;
 import org.springframework.web.client.RestTemplate;
 
@@ -27,9 +25,9 @@ public class RepoRepository implements IRepoRepository {
         if(repositories != null) {
             for(Repo repository : repositories) {
                 repoResponses.add(new RepoResponse(
-                    repository.getRepositoryName(),
-                    getMostUsedLanguage(repository.getLanguagesUrl()),
-                    repository.getVisibility()
+                    repository.full_name(),
+                    getMostUsedLanguage(repository.languages_url()),
+                    repository.visibility()
                 ));
             }
         }
