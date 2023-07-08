@@ -17,9 +17,7 @@ public class RepoController {
     }
 
     @GetMapping("/repositories/{username}")
-    public ResponseEntity<List<RepoResponse>> getRepositories(
-            @PathVariable String username,
-            @RequestHeader(name = "Accept", defaultValue = "application/json") String acceptHeader) {
-        return ResponseEntity.ok(repoService.getRepositories(username, acceptHeader));
+    public ResponseEntity<List<RepoResponse>> getRepositories(@PathVariable String username) {
+        return ResponseEntity.ok(repoService.getRepositories(username));
     }
 }

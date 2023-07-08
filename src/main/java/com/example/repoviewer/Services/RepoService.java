@@ -1,6 +1,5 @@
 package com.example.repoviewer.Services;
 
-import com.example.repoviewer.Models.Exceptions.UnsupportedMediaType;
 import com.example.repoviewer.Models.Responses.RepoResponse;
 import com.example.repoviewer.Repositories.RepoRepository;
 import org.springframework.stereotype.Service;
@@ -15,10 +14,7 @@ public class RepoService {
         this.repoRepository = repoRepository;
     }
 
-    public List<RepoResponse> getRepositories(String username, String acceptHeader) {
-        if(acceptHeader.contains("application/xml"))
-            throw new UnsupportedMediaType();
-
+    public List<RepoResponse> getRepositories(String username) {
         return repoRepository.getRepositoriesByUsername(username);
     }
 }

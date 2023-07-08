@@ -1,6 +1,6 @@
 package com.example.repoviewer.Configs;
 
-import com.example.repoviewer.Models.Exceptions.UnsupportedMediaType;
+import com.example.repoviewer.Models.Exceptions.UnsupportedMediaTypeException;
 import com.example.repoviewer.Models.Responses.ErrorResponse;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -22,9 +22,9 @@ public class GlobalExceptionHandler {
         return buildErrorResponse("Method not supported", HttpStatus.METHOD_NOT_ALLOWED);
     }
 
-    @ExceptionHandler(UnsupportedMediaType.class)
-    public ResponseEntity<ErrorResponse> handleUnsupportedMediaTypeException() {
-        return buildErrorResponse("Unsupported media type", HttpStatus.UNSUPPORTED_MEDIA_TYPE);
+    @ExceptionHandler(UnsupportedMediaTypeException.class)
+    public ResponseEntity<ErrorResponse> handleUnsupportedMediaTypeException(UnsupportedMediaTypeException ex) {
+        return buildErrorResponse(ex.getMessage(), HttpStatus.UNSUPPORTED_MEDIA_TYPE);
     }
 
     private ResponseEntity<ErrorResponse> buildErrorResponse(String message, HttpStatus httpStatus) {
