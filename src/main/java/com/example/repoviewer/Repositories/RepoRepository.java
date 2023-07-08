@@ -27,7 +27,8 @@ public class RepoRepository implements IRepoRepository {
                 repoResponses.add(new RepoResponse(
                     repository.full_name(),
                     getMostUsedLanguage(repository.languages_url()),
-                    repository.visibility()
+                    repository.visibility(),
+                    repository.html_url()
                 ));
             }
         }
