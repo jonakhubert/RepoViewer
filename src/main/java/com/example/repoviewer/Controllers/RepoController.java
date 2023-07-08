@@ -3,10 +3,7 @@ package com.example.repoviewer.Controllers;
 import com.example.repoviewer.Models.Responses.RepoResponse;
 import com.example.repoviewer.Services.RepoService;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -20,7 +17,9 @@ public class RepoController {
     }
 
     @GetMapping("/repositories/{username}")
-    public ResponseEntity<List<RepoResponse>> getRepositories(@PathVariable String username) {
-        return ResponseEntity.ok(repoService.getRepositories(username));
+    public ResponseEntity<List<RepoResponse>> getRepositories(
+            @PathVariable String username,
+            @RequestHeader(name = "Accept", defaultValue = "application/json") String acceptHeader) {
+        return ResponseEntity.ok(repoService.getRepositories(username, acceptHeader));
     }
 }
