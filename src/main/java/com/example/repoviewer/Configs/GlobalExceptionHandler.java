@@ -1,21 +1,30 @@
 package com.example.repoviewer.Configs;
 
+import com.example.repoviewer.Models.Exceptions.UnsupportedMediaType;
 import com.example.repoviewer.Models.Responses.ErrorResponse;
-import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.HttpRequestMethodNotSupportedException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 import org.springframework.web.client.HttpClientErrorException;
-import org.springframework.web.context.request.WebRequest;
-import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExceptionHandler;
 
 @RestControllerAdvice
-public class GlobalExceptionHandler extends ResponseEntityExceptionHandler {
+public class GlobalExceptionHandler {
 
     @ExceptionHandler(HttpClientErrorException.class)
-    private ResponseEntity<ErrorResponse> handleUserNotFound(RuntimeException ex, WebRequest request) {
+    public ResponseEntity<ErrorResponse> handleUserNotFoundException() {
         return buildErrorResponse("User not found", HttpStatus.NOT_FOUND);
+    }
+
+    @ExceptionHandler(HttpRequestMethodNotSupportedException.class)
+    public ResponseEntity<ErrorResponse> handleMethodNotSupportedException() {
+        return buildErrorResponse("Method not supported", HttpStatus.METHOD_NOT_ALLOWED);
+    }
+
+    @ExceptionHandler(UnsupportedMediaType.class)
+    public ResponseEntity<ErrorResponse> handleUnsupportedMediaTypeException() {
+        return buildErrorResponse("Unsupported media type", HttpStatus.UNSUPPORTED_MEDIA_TYPE);
     }
 
     private ResponseEntity<ErrorResponse> buildErrorResponse(String message, HttpStatus httpStatus) {
