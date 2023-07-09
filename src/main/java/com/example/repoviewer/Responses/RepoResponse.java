@@ -1,4 +1,4 @@
-package com.example.repoviewer.Models.Responses;
+package com.example.repoviewer.Responses;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 

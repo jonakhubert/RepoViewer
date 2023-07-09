@@ -1,7 +1,7 @@
 package com.example.repoviewer.Repositories;
 
 import com.example.repoviewer.Models.Repo;
-import com.example.repoviewer.Models.Responses.RepoResponse;
+import com.example.repoviewer.Responses.RepoResponse;
 import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.http.MediaType;
 import org.springframework.http.RequestEntity;

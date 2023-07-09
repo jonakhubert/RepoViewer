@@ -1,6 +1,6 @@
 package com.example.repoviewer.Repositories;
 
-import com.example.repoviewer.Models.Responses.RepoResponse;
+import com.example.repoviewer.Responses.RepoResponse;
 
 import java.util.List;
 
