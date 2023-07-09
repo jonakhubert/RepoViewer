@@ -1,6 +1,6 @@
 package com.example.repoviewer.Controllers;
 
-import com.example.repoviewer.Models.Responses.RepoResponse;
+import com.example.repoviewer.Responses.RepoResponse;
 import com.example.repoviewer.Services.RepoService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -17,7 +17,9 @@ public class RepoController {
     }
 
     @GetMapping("/repositories/{username}")
-    public ResponseEntity<List<RepoResponse>> getRepositories(@PathVariable String username) {
-        return ResponseEntity.ok(repoService.getRepositories(username));
+    public ResponseEntity<List<RepoResponse>> getRepositories(
+            @PathVariable String username,
+            @RequestHeader(name = "Accept", defaultValue = "application/json") String acceptHeader) {
+        return ResponseEntity.ok(repoService.getRepositories(username, acceptHeader));
     }
 }
