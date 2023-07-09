@@ -1,0 +1,101 @@
+@import url('https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;500&display=swap');
+
+* {
+  font-family: "Prompt";
+  color: white;
+}
+
+body {
+  background-color: rgb(36, 34, 34);
+}
+
+div {
+  align-items: center;
+}
+
+.search-box {
+  display: grid;
+  place-items: center;
+  margin-bottom: 80px;
+}
+
+.headline {
+  margin: 0;
+  text-align: center;
+  font-size: 50px;
+  font-weight: bold;
+  margin: 20px 0;
+}
+
+.search-bar {
+  width: 100%;
+  max-width: 700px;
+  background: rgba(255, 255, 255, 0.2);
+  display: flex;
+  align-items: center;
+  border-radius: 60px;
+  padding: 10px 0px;
+}
+
+.search-bar input {
+  background: transparent;
+  flex: 1;
+  border: 0;
+  outline: none;
+  color: #ffffff;
+  font-size: 20px;  
+  padding: 15px 20px;
+}
+
+.search-bar button img {
+  width: 25px;
+}
+
+.search-bar button {
+  border: 0;
+  border-radius: 0;
+  width: 40px;
+  height: 40px;
+  background: transparent;
+  cursor: pointer;
+  margin: 0 20px 0 0;
+}
+
+::placeholder {
+  color: #b9b9c2;
+}
+
+.display-box {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  justify-content: space-between;
+  align-items: center;
+  grid-gap: 30px;
+  column-gap: 30px;
+}
+
+.repo-container {
+  border: 2px solid;
+  border-color: rgb(136, 127, 127);
+  border-radius: 8px;
+  padding: 5px 20px;
+  display: grid;
+  grid-template-columns: 300px 1fr;
+  column-gap: 5px;
+}
+
+.repo-container .name {
+  color: rgb(25, 212, 212);
+  font-weight: bold;
+}
+
+.repo-container .visibility {
+  color: rgb(201, 199, 199);
+  border: 1px solid;
+  border-radius: 20px;
+  text-align: center;
+}
+
+.repo-container .language {
+  color: #f8f8f8;
+}
