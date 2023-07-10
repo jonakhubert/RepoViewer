@@ -9,5 +9,4 @@ public class RepoViewerApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(RepoViewerApplication.class, args);
 	}
-
 }
