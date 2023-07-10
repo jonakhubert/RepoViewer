@@ -51,14 +51,13 @@ div {
   width: 25px;
 }
 
-.search-bar button {
+.search-bar img {
   border: 0;
   border-radius: 0;
-  width: 40px;
-  height: 40px;
+  width: 30px;
+  height: 30px;
   background: transparent;
-  cursor: pointer;
-  margin: 0 20px 0 0;
+  margin: 0 30px 5px 0;
 }
 
 ::placeholder {
@@ -77,7 +76,7 @@ div {
 .repo-container {
   border: 2px solid;
   border-color: rgb(136, 127, 127);
-  border-radius: 8px;
+  border-radius: 30px;
   padding: 5px 20px;
   display: grid;
   grid-template-columns: 300px 1fr;
@@ -87,15 +86,18 @@ div {
 .repo-container .name {
   color: rgb(25, 212, 212);
   font-weight: bold;
+  font-size: 20px;
 }
 
 .repo-container .visibility {
   color: rgb(201, 199, 199);
-  border: 1px solid;
+  border: 2px solid;
   border-radius: 20px;
   text-align: center;
 }
 
 .repo-container .language {
   color: #f8f8f8;
+  font-size: 20px;
+  margin-bottom: 18px;
 }
