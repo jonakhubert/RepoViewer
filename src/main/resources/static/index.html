@@ -5,28 +5,33 @@
   <title>RepoViewer</title>
 
   <link rel="stylesheet" href="style.css">
-  <script src="index.js" defer></script>
+  <script src="scripts/search.js" defer></script>
+  <script src="scripts/load-repos.js" defer></script>
+
+  <template repo-template>
+    <div class="repo-container">
+      <a class="name" href="#" target="_blank"></a>
+      <p class="visibility"></p>
+      <p></p>
+      <p></p>
+      <p class="language"></p>
+    </div>
+  </template>
+
 </head>
 <body>
   <div class="container">
     <div class="search-box">
       <p class="headline">RepoViewer</p>
-      <form action="" class="search-bar">
+      <form action="" class="search-bar" id="search">
         <input type="text" placeholder="username">
         <img src="../images/search.png">
       </form>
     </div>
 
-    <div class="display-box">
-      <div class="repo-container">
-        <p class="name">fitness-tracker</p>
-        <p class="visibility">Public</p>
-        <p></p>
-        <p></p>
-        <p class="language">Java</p>
-      </div> 
-    </div>
-    
+    <div class="display-box"></div>
+    <p class="error-message"></p>
+
   </div>
 </body>
 </html>
