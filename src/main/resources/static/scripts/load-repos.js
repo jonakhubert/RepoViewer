@@ -9,6 +9,8 @@ if(value !== null && value !== '') {
   .then(data => {
     if(data.httpStatus)
       errorMessage.textContent = data.message;
+    else if(data.length === 0)
+      errorMessage.textContent = "User has no repositories";
     else {
       data.forEach(repo => {
         const template = repoTemplate.content.cloneNode(true);
