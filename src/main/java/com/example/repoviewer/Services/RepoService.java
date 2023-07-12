@@ -15,7 +15,7 @@ public class RepoService {
         this.repoRepository = repoRepository;
     }
 
-    public List<RepoResponse> getRepositories(String username, String acceptHeader) {
+    public List<RepoResponse> getRepositoriesByUsername(String username, String acceptHeader) {
         if(acceptHeader.equals("application/xml"))
             throw new UnsupportedMediaTypeException("Media not supported: " + acceptHeader);
 

@@ -15,10 +15,15 @@ import java.util.Map;
 @Repository
 public class RepoRepository implements IRepoRepository {
 
+    private final RestTemplate restTemplate;
+
+    public RepoRepository(RestTemplate restTemplate) {
+        this.restTemplate = restTemplate;
+    }
+
     @Override
     public List<RepoResponse> getRepositoriesByUsername(String username) {
         String apiUrl = "https://api.github.com/users/{username}/repos".replace("{username}", username);
-        RestTemplate restTemplate = new RestTemplate();
         Repo[] repositories = restTemplate.getForObject(apiUrl, Repo[].class);
         List<RepoResponse> repoResponses = new ArrayList<>();
 
@@ -40,7 +45,6 @@ public class RepoRepository implements IRepoRepository {
     public String getMostUsedLanguage(String languagesUrl) {
         ParameterizedTypeReference<Map<String, Integer>> responseType = new ParameterizedTypeReference<>() {};
         RequestEntity<Void> request = RequestEntity.get(languagesUrl).accept(MediaType.APPLICATION_JSON).build();
-        RestTemplate restTemplate = new RestTemplate();
         Map<String, Integer> response = restTemplate.exchange(request, responseType).getBody();
 
         String language = "";
